@@ -1,4 +1,5 @@
 import React from "react";
+import { range } from "../../utils";
 
 function Guess({ guess, index, statusArr }) {
   return (
@@ -14,11 +15,9 @@ function Guess({ guess, index, statusArr }) {
         })
       ) : (
         <React.Fragment key={index}>
-          <span className="cell"></span>
-          <span className="cell"></span>
-          <span className="cell"></span>
-          <span className="cell"></span>
-          <span className="cell"></span>
+          {range(5).map((number) => (
+            <span className="cell" key={number}></span>
+          ))}
         </React.Fragment>
       )}
     </p>
