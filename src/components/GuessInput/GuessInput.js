@@ -13,8 +13,10 @@ function GuessInput({ setGuessList }) {
     <form className="guess-input-wrapper" onSubmit={handleFormSubmission}>
       <label htmlFor="guess-input">Enter guess:</label>
       <input
+        required
         id="guess-input"
         type="text"
+        minLength={5}
         maxLength={5}
         pattern="[\w]{5}"
         value={guess}
