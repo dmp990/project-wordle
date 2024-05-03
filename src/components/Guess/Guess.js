@@ -1,14 +1,17 @@
 import React from "react";
 
-function Guess({ guess, index }) {
+function Guess({ guess, index, statusArr }) {
   return (
     <p className="guess" key={index}>
       {guess !== undefined ? (
-        guess.split("").map((character, cindex) => (
-          <span className="cell" key={`${cindex}-${character}`}>
-            {character}
-          </span>
-        ))
+        guess.split("").map((character, cindex) => {
+          const classToApply = `cell ${statusArr[cindex].status}`;
+          return (
+            <span className={classToApply} key={`${cindex}-${character}`}>
+              {character}
+            </span>
+          );
+        })
       ) : (
         <React.Fragment key={index}>
           <span className="cell"></span>
